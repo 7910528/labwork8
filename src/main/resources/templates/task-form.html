@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Create/Edit Task</title>
+</head>
+<body>
+<h1 th:text="${task.id == null} ? 'Create Task' : 'Edit Task'"></h1>
+<form th:action="@{${task.id == null} ? '/tasks/create' : '/tasks/edit/' + ${task.id}}" method="post">
+  <div>
+    <label>Name:</label>
+    <input type="text" name="name" th:value="${task.name}"/>
+  </div>
+  <div>
+    <label>Description:</label>
+    <input type="text" name="description" th:value="${task.description}"/>
+  </div>
+  <div>
+    <button type="submit" th:text="${task.id == null} ? 'Create' : 'Update'"></button>
+  </div>
+</form>
+</body>
+</html>

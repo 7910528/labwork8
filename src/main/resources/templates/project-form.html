@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create/Edit Project</title>
+</head>
+<body>
+<h1 th:text="${project.id == null} ? 'Create Project' : 'Edit Project'"></h1>
+<form th:action="@{${project.id == null} ? '/projects/create' : '/projects/edit/' + ${project.id}}" method="post">
+    <div>
+        <label>Name:</label>
+        <input type="text" name="name" th:value="${project.name}"/>
+    </div>
+    <div>
+        <button type="submit" th:text="${project.id == null} ? 'Create' : 'Update'"></button>
+    </div>
+</form>
+</body>
+</html>
